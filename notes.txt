@@ -1,0 +1,5 @@
+Commit com primeira versão do CSS, só para poder olhar pra isso sem querer vomitar
+
+A parte dos input radio ta quebrada e eu não sei arrumar kkkkkkkkkkkkkkkkk
+
+vamo estilizar mais depois de fazer o js
