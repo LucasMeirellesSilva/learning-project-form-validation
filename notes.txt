@@ -3,3 +3,7 @@ Commit com primeira versão do CSS, só para poder olhar pra isso sem querer vom
 A parte dos input radio ta quebrada e eu não sei arrumar kkkkkkkkkkkkkkkkk
 
 vamo estilizar mais depois de fazer o js
+
+As imagens tem que ficar no formato certo e vai ser uma dor colocar elas ent deixei por agora
+
+se eu der push master é pq n consegui mandar pra minha branch
