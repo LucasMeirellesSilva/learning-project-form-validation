@@ -34,7 +34,7 @@
                 </div>
                 <div class="input-usuario" id="tel-usuario">
                     <label for="telefone">Telefone</label>
-                    <input type="number" id="telefone" name="telefone" placeholder="+55 00 00000-0000">
+                    <input type="number" id="telefone" name="telefone" placeholder="00 00000-0000">
                 </div>
             </div>
         </div>
@@ -123,9 +123,9 @@
         </div>
         <div class="professional-info">
             <h2>Informações Profissionais</h2>
-            <div class="input-container">
+        <div class="input-container">
                 <div class="wrapper">
-                    <label for="profissao">Profissão</label>
+                    <label for="profissao"><strong>Profissão</strong></label>
                     <select id="profissao" name="profissao">
                         <option value="Desenvolvedor">Desenvolvedor</option>
                         <option value="Analista">Analista</option>
@@ -133,23 +133,25 @@
                         <option value="Suporte">Suporte</option>
                     </select>
                 </div>
-                <label for="wrapper-experiencia">Experiência</label>
-                <div class="wrapper" id="wrapper-experiencia">
-                    <div class="experiencia">
-                        <label for="junior">Júnior</label>
-                        <input type="radio" id="junior" name="experiencia" value="Júnior">
-                    </div>
-                    <div class="experiencia">
-                        <label for="pleno">Pleno</label>
-                        <input type="radio" id="pleno" name="experiencia" value="Pleno">
-                    </div>
-                    <div class="experiencia">
-                        <label for="senior">Sênior</label>
-                        <input type="radio" id="senior" name="experiencia" value="Sênior">
-                    </div>
-                    <div class="experiencia">
-                        <label for="master">Master</label>
-                        <input type="radio" id="master" name="experiencia" value="Master">
+                <div class="wrapper">
+                    <label for="wrapper-experiencia"><strong>Experiência</strong></label>
+                    <div class="wrapper" id="wrapper-experiencia">
+                        <div class="experiencia">
+                            <label for="junior">Júnior</label>
+                            <input type="radio" id="junior" name="experiencia" value="Júnior">
+                        </div>
+                        <div class="experiencia">
+                            <label for="pleno">Pleno</label>
+                            <input type="radio" id="pleno" name="experiencia" value="Pleno">
+                        </div>
+                        <div class="experiencia">
+                            <label for="senior">Sênior</label>
+                            <input type="radio" id="senior" name="experiencia" value="Sênior">
+                        </div>
+                        <div class="experiencia">
+                            <label for="master">Master</label>
+                            <input type="radio" id="master" name="experiencia" value="Master">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -158,7 +160,7 @@
             <label for="descricao">
                 <h2>Informações Adicionais</h2>
             </label>
-            <textarea name="descricao" id="descricao" placeholder="Digite aqui habilidades adicionais que você possuai" rows="8"></textarea>
+            <textarea name="descricao" id="descricao" placeholder="Digite aqui habilidades adicionais que você possui." rows="8"></textarea>
         </div>
         <div class="btn-wrapper">
             <button type="reset" class="form-btn" id="del-btn">Apagar</button>
