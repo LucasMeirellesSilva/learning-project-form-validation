@@ -161,3 +161,89 @@ input[type=number] {
 .input-alerta {
     outline-color: red;
 }
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.4s ease, visibility 1.4s ease;
+}
+
+.show.aparecendo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.checkbox-container {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 35px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    gap: 15px;
+}
+
+.checkbox-container > label {
+    width: 27%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* border: 2px solid rgb(206, 206, 206); */
+    border-radius: 15px;
+    user-select: none;
+}
+
+.language-content {
+    width: 100%;
+    height: 100%;
+    gap: 15px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+    border-radius: 15px;
+}
+
+
+
+
+.lang-img {
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.lang-img img{
+    object-fit: contain;
+    max-width: 50px;
+}
+
+
+.checkbox-container > label:hover{    
+    cursor: pointer;
+}
+
+
+.language-content.checked {
+    transform: scale(0.90);
+}
+
+
+.linguagem.checked{
+    box-shadow: rgba(134, 134, 194, 0.25) 0px 0px 100px -10px inset, rgba(163, 163, 163, 0.3) 0px 18px 36px -18px inset;  
+}

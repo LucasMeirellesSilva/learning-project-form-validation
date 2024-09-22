@@ -1,9 +1,24 @@
 document.getElementById('formulario').addEventListener('submit', function(event) {
   event.preventDefault();
   removerTodosAlertas();
-  checkName();
-  checkSurname();
+  // checkName();
+  // checkSurname();
+  // checkNascimento();
+  // checkCpf();
+  // checkEmail();
+  // checkTelefone();
 });
+
+const persoInfoDiv = document.querySelector('.personal-info');
+const adressInfoDiv = document.querySelector('.adress-info');
+const inputsInfo = persoInfoDiv.querySelectorAll('input');
+const inputsAdress = adressInfoDiv.querySelectorAll('input');
+inputsInfo.forEach(input => {
+  input.addEventListener('change', checkPersInfo)
+})
+inputsAdress.forEach(input => {
+  input.addEventListener('change', checkAdressInfo)
+})
 
 function criarAlerta() {
   const alerta = document.createElement("img");
@@ -26,16 +41,22 @@ function removerAlerta(e) {
   if (divToRemove) {
     divToRemove.replaceWith(...divToRemove.childNodes);
   }
-  e.target.classList.remove('input-alerta')
+  e.target.classList.remove('input-alerta');
 }
 
 // Função que remove todos os alertas para impedir que eles acumulem a cada tentativa de envio do formulário.
 function removerTodosAlertas() {
   const alertas = document.querySelectorAll('img.alerta');
+  const divs = document.querySelectorAll('div.alerta');
   if (alertas) {
       alertas.forEach(alerta => {
           alerta.remove();
       })
+  }
+  if (divs) {
+    divs.forEach(div => {
+      div.replaceWith(...div.childNodes);
+    })
   }
 }
 
@@ -44,6 +65,75 @@ function criarDiv() {
   div.classList.add('alerta');
   div.style.cssText = 'display: flex; justify-content: space-between; align-items: center;';
   return div;
+}
+
+function appendAlert(div, label, alerta, elemento) {
+  div.appendChild(label);
+  div.appendChild(alerta);
+  elemento.parentNode.insertBefore(div, elemento);
+  elemento.classList.add('input-alerta');
+  elemento.focus();
+}
+
+// function formatCpf() {
+//   const cpf = document.getElementById('cpf');
+//   const valor = cpf.value;
+
+//   if (valor.length == 3) {
+//     cpf.value = valor.
+//   }
+//   if (valor.length > 6 && valor.length <= 7) {
+//     cpf.value = valor.replace(/^(\d{3}\.){1}(\d{3}\.)/, '')
+//   }
+//   if (valor.length == 7 && valor[6] != '.') {
+//     cpf.value += '.'
+//   }
+
+// }
+
+function mostrarElemento(className) {
+  const elemento = document.querySelector(className);
+
+  elemento.classList.remove('hidden');
+  elemento.classList.add('show');
+  
+  setTimeout(() => {
+    elemento.classList.add('aparecendo');
+    
+    elemento.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+  }, 10);
+}
+
+function checkPersInfo() {
+  const persoInfo = document.querySelector('.personal-info');
+  const inputs = persoInfo.querySelectorAll('input');
+  let pronto = true
+  inputs.forEach(input => {
+    if (input.value == '') {
+      pronto = false
+    }
+  })
+  if (pronto) {
+    mostrarElemento('.adress-info')
+  }
+}
+
+function checkAdressInfo() {
+  const adressInfo = document.querySelector('.adress-info');
+  const inputs = adressInfo.querySelectorAll('input');
+  let pronto = true
+  inputs.forEach(input => {
+    if (input.value == '') {
+      pronto = false
+    }
+  })
+  if (pronto) {
+    mostrarElemento('.conhecimentos')
+  }
 }
 
 function contemNumeros(valor) {
@@ -59,26 +149,18 @@ function checkName() {
   nome.addEventListener('change', removerAlerta);
   const div = criarDiv();
   const label = nome.parentElement.querySelector('label');
-
-  function appendAlert() {
-    div.appendChild(label);
-    div.appendChild(alerta);
-    nome.parentNode.insertBefore(div, nome);
-    nome.classList.add('input-alerta');
-    nome.focus();
-  }
   
   if (userText.length <= 2) {
       alerta.title += 'O nome precisa ter mais que dois caractéres.';
-      appendAlert();
+      appendAlert(div, label, alerta, nome);
   }
   if (userText.length > 50) {
       alerta.title += 'O nome não pode ter mais que cinquenta caractéres.';
-      appendAlert();
+      appendAlert(div, label, alerta, nome);
   } 
   if (contemNumeros(userText)) {
       alerta.title += '\nO nome não pode incluir números.';
-      appendAlert();
+      appendAlert(div, label, alerta, nome);
   }
 }
 
@@ -89,41 +171,82 @@ function checkSurname() {
   sobrenome.addEventListener('change', removerAlerta);
   const div = criarDiv();
   const label = sobrenome.parentElement.querySelector('label');
-
-  function appendAlert() {
-    div.appendChild(label);
-    div.appendChild(alerta);
-    sobrenome.parentNode.insertBefore(div, sobrenome);
-    sobrenome.classList.add('input-alerta');
-    sobrenome.focus();
-  }
   
   if (userText.length <= 2) {
       alerta.title += 'O sobrenome precisa ter mais que dois caractéres.';
-      appendAlert();
+      appendAlert(div, label, alerta, sobrenome);
   } 
-  else if (userText.length > 50) {
+  if (userText.length > 50) {
       alerta.title += 'O sobrenome não pode ter mais que cinquenta caractéres.';
-      appendAlert();
+      appendAlert(div, label, alerta, sobrenome);
   } 
-  else if (contemNumeros(userText)) {
+  if (contemNumeros(userText)) {
       alerta.title += '\nO sobrenome não pode incluir números.';
-      appendAlert();
+      appendAlert(div, label, alerta, sobrenome);
   }
 }
 
-// function checkData() {
-//     const data = document.querySelectorAll("input")
-//     data.forEach(e => {
-//         if (e.type == 'number' || 'text'){
-//             if (e.value == '') {
-//                 let errorMsg = document.createElement('span');
-//                 errorMsg.textContent = `Elemento ${e.name} não pode ficar em branco.`;
-//                 errorMsg.style.cssText = "color : red; font-size: 0.8rem;"
-//                 e.parentElement.append(errorMsg)
-//                 e.style.border = "1px solid red"
-//             }
-//         }
-//     });
-//     console.log(data)
-// }
+function checkNascimento() {
+  const alerta = criarAlerta();
+  const nascimento = document.getElementById('nascimento');
+  const data = new Date(nascimento.value);
+  nascimento.addEventListener('change', removerAlerta);
+  const div = criarDiv();
+  const label = nascimento.parentElement.querySelector('label');
+
+  function isFutureDate(date) {
+    const currentDate = new Date();
+
+    return date > currentDate;
+  }
+
+  if (isFutureDate(data)) {
+    alerta.title += 'Você não pode ter nascido no futuro :).';
+    appendAlert(div, label, alerta, nascimento);
+  }
+}
+
+function checkCpf() {
+  const alerta = criarAlerta();
+  const cpf = document.getElementById('cpf');
+  const userText = String(cpf.value);
+  const cpfRegex = /^\d{3}.\d{3}.\d{3}-\d{2}$/;
+  cpf.addEventListener('change', removerAlerta);
+  const div = criarDiv();
+  const label = cpf.parentElement.querySelector('label');
+
+  if (!cpfRegex.test(userText)) {
+    alerta.title += 'O CPF não está correto.';
+    appendAlert(div, label, alerta, cpf)
+  }
+}
+
+function checkEmail() {
+  const alerta = criarAlerta();
+  const email = document.getElementById('email');
+  const userText = String(email.value);
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  email.addEventListener('change', removerAlerta);
+  const div = criarDiv();
+  const label = email.parentElement.querySelector('label');
+
+  if (!emailRegex.test(userText)) {
+    alerta.title += 'O Email não está correto.';
+    appendAlert(div, label, alerta, email)
+  }
+}
+
+function checkTelefone() {
+  const alerta = criarAlerta();
+  const telefone = document.getElementById('telefone');
+  const userText = String(telefone.value);
+  const telRegex = /^\d{2}\d{5}\d{4}$/;
+  telefone.addEventListener('change', removerAlerta);
+  const div = criarDiv();
+  const label = telefone.parentElement.querySelector('label');
+
+  if (!telRegex.test(userText)) {
+    alerta.title += 'O Telefone não está correto.';
+    appendAlert(div, label, alerta, telefone)
+  }
+}
