@@ -1,0 +1,29 @@
+import { criarDiv, criarAlerta } from "./components.js";
+import { appendAlert } from "./alertMethods.js";
+
+export default function cepComplete() {
+  const cep = document.querySelector('input[name="cep"]');
+  const div = criarDiv();
+  const alerta = criarAlerta();
+  const label = cep.parentElement.querySelector('label');
+    fetch(`https://viacep.com.br/ws/${cep.value}/json/`)
+      .then(response => response.json())
+      .then(data => {
+        if (!data.erro) {
+          console.log(data);
+          cep.value = data.cep;
+          const estado = document.querySelector('#estado');
+          estado.value = data.estado;
+          const cidade = document.querySelector('#cidade');
+          cidade.value = data.localidade;
+          const bairro = document.querySelector('#bairro');
+          bairro.value = data.bairro;
+          const rua = document.querySelector('#rua');
+          rua.value = data.logradouro;
+        }
+      })
+      .catch(() => {
+        alerta.title += 'CEP inválido!';
+        appendAlert(div, label, alerta, cep)
+      });
+  }
