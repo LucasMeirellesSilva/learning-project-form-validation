@@ -23,6 +23,7 @@ inputsAdress.forEach(input => {
 function criarAlerta() {
   const alerta = document.createElement("img");
   alerta.classList.add('alerta');
+  alerta.classList.add('animation');
   alerta.setAttribute('src', './icones/Alert-icon.png');
   alerta.setAttribute('alt', "Ícone de Alerta");
   alerta.setAttribute('title', '');
@@ -73,23 +74,26 @@ function appendAlert(div, label, alerta, elemento) {
   elemento.parentNode.insertBefore(div, elemento);
   elemento.classList.add('input-alerta');
   elemento.focus();
+} 
+
+function formatCpf() {
+  const cpf = document.getElementById('cpf');
+  let userText = cpf.value.replace(/\D/g, '');
+
+  if (userText.length > 3) {
+    userText = userText.replace(/(\d{3})(\d)/, '$1.$2');
+  }
+  if (userText.length > 7) {
+    userText = userText.replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+  }
+  if (userText.length > 10) {
+    userText = userText.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+  }
+
+  cpf.value = userText
 }
 
-// function formatCpf() {
-//   const cpf = document.getElementById('cpf');
-//   const valor = cpf.value;
-
-//   if (valor.length == 3) {
-//     cpf.value = valor.
-//   }
-//   if (valor.length > 6 && valor.length <= 7) {
-//     cpf.value = valor.replace(/^(\d{3}\.){1}(\d{3}\.)/, '')
-//   }
-//   if (valor.length == 7 && valor[6] != '.') {
-//     cpf.value += '.'
-//   }
-
-// }
+// function formatTelefone()
 
 function mostrarElemento(className) {
   const elemento = document.querySelector(className);
@@ -200,6 +204,11 @@ function checkNascimento() {
     return date > currentDate;
   }
 
+
+  if (data == "Invalid Date") {
+    alerta.title += 'Data inválida'
+    appendAlert(div, label, alerta, nascimento)
+  }
   if (isFutureDate(data)) {
     alerta.title += 'Você não pode ter nascido no futuro :).';
     appendAlert(div, label, alerta, nascimento);

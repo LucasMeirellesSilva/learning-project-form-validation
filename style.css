@@ -9,6 +9,7 @@ body {
     background-color: rgb(248, 248, 248);
 }
 
+
 form {
     width: 55%;
     margin: 30px;
@@ -18,6 +19,7 @@ form {
     gap: 20px;
 }
 
+
 .input-usuario {
     width: 30%;
     margin-bottom: 15px;
@@ -26,6 +28,7 @@ form {
     gap: 10px;
     font-size: 1.4em;
 }
+
 
 .input-container {
     width: 85%;
@@ -41,24 +44,29 @@ form {
     justify-content: space-evenly;
 }
 
+
 .wrapper label{
     font-size: 1.1rem;
     text-align: center;
 }
+
 
 select {
     padding: 0.5rem;
     border-radius: 8px;
 }
 
+
 .experiencia {
     display: flex;
     justify-content: space-between;
 }
 
+
 h2 {
     margin: 8px;
 }
+
 
 input {
     width: 100%;
@@ -69,11 +77,13 @@ input {
     text-indent: 8px;
 }
 
+
 .wrapper{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
+
 
 .linguagem {
     display: flex;
@@ -82,19 +92,23 @@ input {
     gap: 0.5rem; 
 }
 
+
 input[type=checkbox] {
     width: fit-content;
     transform: scale(1.2);
 } 
 
+
 input[type=radio] {
     width: fit-content;
 }
+
 
 .info-adicional{
     display: flex;
     flex-direction: column;
 }
+
 
 .info-adicional textarea {
     width: 95%;
@@ -107,6 +121,7 @@ input[type=radio] {
     text-indent: 8px;
 }
 
+
 /* Remove as flechas de aumentar ou diminuir valor dos inputs de tipo number */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -114,10 +129,12 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+
 /* Remove as flechas no Firefox */
 input[type=number] {
 -moz-appearance: textfield;
 }
+
 
 .btn-wrapper{
     margin: 20px;
@@ -125,6 +142,7 @@ input[type=number] {
     justify-content: center;
     gap: 65px;
 }
+
 
 .form-btn {
     width: 8rem;
@@ -134,11 +152,13 @@ input[type=number] {
     color: white;
 }
 
+
 #submit-btn{
     background-color: #00afd4;
     border: 2px solid #00afd4;
     font-weight: bold;
 }
+
 
 #submit-btn:hover{
     background-color: white;
@@ -146,11 +166,13 @@ input[type=number] {
     cursor: pointer;
 }
 
+
 #del-btn{
     background-color: red;
     border: 2px solid red;
     font-weight: bold;
 }
+
 
 #del-btn:hover{
     background-color:white;
@@ -158,13 +180,16 @@ input[type=number] {
     cursor: pointer;
 }
 
+
 .input-alerta {
     outline-color: red;
 }
 
+
 .hidden {
     display: none;
 }
+
 
 .show {
     display: block;
@@ -173,10 +198,12 @@ input[type=number] {
     transition: opacity 1.4s ease, visibility 1.4s ease;
 }
 
+
 .show.aparecendo {
     opacity: 1;
     visibility: visible;
 }
+
 
 .checkbox-container {
     width: 100%;
@@ -190,6 +217,7 @@ input[type=number] {
     gap: 15px;
 }
 
+
 .checkbox-container > label {
     width: 27%;
     padding: 15px;
@@ -201,6 +229,7 @@ input[type=number] {
     border-radius: 15px;
     user-select: none;
 }
+
 
 .language-content {
     width: 100%;
@@ -216,17 +245,12 @@ input[type=number] {
 }
 
 
-
-
 .lang-img {
     height: 55%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-
-
 
 .lang-img img{
     object-fit: contain;
@@ -247,3 +271,16 @@ input[type=number] {
 .linguagem.checked{
     box-shadow: rgba(134, 134, 194, 0.25) 0px 0px 100px -10px inset, rgba(163, 163, 163, 0.3) 0px 18px 36px -18px inset;  
 }
+
+
+.animation {
+    animation: shaking 0.2s linear 10;
+}
+
+@keyframes shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(7deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-7deg); }
+    100% { transform: rotate(0deg); }
+  }

@@ -26,7 +26,7 @@
                 </div>
                 <div class="input-usuario">
                     <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" oninput="formatCpf()">
                 </div>
                 <div class="input-usuario" id="email-usuario">
                     <label for="email">Email</label>
@@ -217,7 +217,7 @@
             <textarea name="descricao" id="descricao" placeholder="Digite aqui habilidades adicionais que você possui." rows="8"></textarea>
         </div>
         <div class="btn-wrapper">
-            <button type="reset" class="form-btn" id="del-btn">Apagar</button>
+            <button type="reset" class="form-btn" id="del-btn" onclick="window.location.reload();">Apagar</button>
             <button type="submit" class="form-btn" id="submit-btn">Enviar</button>
         </div>
     </form>
