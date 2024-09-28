@@ -1,11 +1,5 @@
-import { criarDiv, criarAlerta } from "./components.js";
-import { appendAlert } from "./alertMethods.js";
-
 export default function cepComplete() {
   const cep = document.querySelector('input[name="cep"]');
-  const div = criarDiv();
-  const alerta = criarAlerta();
-  const label = cep.parentElement.querySelector('label');
     fetch(`https://viacep.com.br/ws/${cep.value}/json/`)
       .then(response => response.json())
       .then(data => {
@@ -23,7 +17,6 @@ export default function cepComplete() {
         }
       })
       .catch(() => {
-        alerta.title += 'CEP inválido!';
-        appendAlert(div, label, alerta, cep)
+        console.log('Autocomplete do CEP não foi possível.')
       });
   }

@@ -34,7 +34,7 @@
                 </div>
                 <div class="input-usuario" id="tel-usuario">
                     <label for="telefone">Telefone</label>
-                    <input type="number" id="telefone" name="telefone" placeholder="00 00000-0000">
+                    <input type="text" id="telefone" name="telefone" placeholder="00 00000-0000" maxlength="13">
                 </div>
             </div>
         </div>
@@ -216,7 +216,7 @@
             </label>
             <textarea name="descricao" id="descricao" placeholder="Digite aqui habilidades adicionais que você possui." rows="8"></textarea>
         </div>
-        <div class="btn-wrapper ">
+        <div class="btn-wrapper hidden">
             <button type="reset" class="form-btn" id="del-btn" onclick="window.location.reload();">Apagar</button>
             <button type="submit" class="form-btn" id="submit-btn">Enviar</button>
         </div>
