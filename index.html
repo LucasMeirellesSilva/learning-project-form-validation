@@ -10,75 +10,75 @@
 <body>
     <form id="formulario">
         <div class="personal-info">
-            <h2>Informações Pessoais</h2>
+            <h2>DADOS PESSOAIS</h2>
             <div class="input-container">
                 <div class="input-usuario" id="nome-usuario">
                     <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" placeholder="...">
+                    <input type="text" id="nome" name="nome" placeholder="..." class="inputs">
                     <span class="erro" id="nome-erro"></span>
                 </div>
                 <div class="input-usuario" id="sobrenome-usuario">
                     <label for="sobrenome">Sobrenome</label>
-                    <input type="text" id="sobrenome" name="sobrenome" placeholder="...">
+                    <input type="text" id="sobrenome" name="sobrenome" placeholder="..." class="inputs">
                     <span class="erro" id="sobrenome-erro"></span>
                 </div>
                 <div class="input-usuario" id="dn-usuario">
                     <label for="nascimento">Nascimento</label>
-                    <input type="date" id="nascimento" name="nascimento"/>
+                    <input type="date" class="inputs" id="nascimento" name="nascimento"/>
                     <span class="erro" id="data-erro"></span>
                 </div>
                 <div class="input-usuario">
                     <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" class="inputs">
                     <span class="erro" id="cpf-erro"></span>
                 </div>
                 <div class="input-usuario" id="email-usuario">
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email" placeholder="email123@example.com">
+                    <input type="text" id="email" name="email" placeholder="email123@example.com" class="inputs">
                     <span class="erro" id="email-erro"></span>
                 </div>
                 <div class="input-usuario" id="tel-usuario">
                     <label for="telefone">Telefone</label>
-                    <input type="number" id="telefone" name="telefone" placeholder="00 00000-0000">
+                    <input type="number" id="telefone" name="telefone" placeholder="00 00000-0000" class="inputs">
                     <span class="erro" id="fone-erro"></span>
                 </div>
             </div>
         </div>
         <div class="adress-info">
-            <h2>Informações de Endereço</h2>
+            <h2>ENDEREÇO</h2>
             <div class="input-container">
                 <div class="input-usuario" id="pais-usuario">
                     <label for="pais">País</label>
-                    <input type="text" id="pais" name="pais" placeholder="Brasil">
+                    <input type="text" id="pais" name="pais" placeholder="Brasil" class="inputs">
                 </div>
                 <div class="input-usuario" id="cep-usuario">
                     <label for="cep">CEP</label>
-                    <input type="number" id="cep" name="cep" placeholder="96180-000">
+                    <input type="number" id="cep" name="cep" placeholder="96180-000" class="inputs">
                 </div>
                 <div class="input-usuario" id="estado-usuario">
                     <label for="estado">Estado</label>
-                    <input type="text" id="estado" name="estado" placeholder="Rio Grande do Sul">
+                    <input type="text" id="estado" name="estado" placeholder="Rio Grande do Sul" class="inputs">
                 </div>
                 <div class="input-usuario" id="cidade-usuario">
                     <label for="cidade">Cidade</label>
-                    <input type="text" id="cidade" name="cidade" placeholder="Camaquã">
+                    <input type="text" id="cidade" name="cidade" placeholder="Camaquã" class="inputs">
                 </div>
                 <div class="input-usuario" id="bairro-usuario">
                     <label for="bairro">Bairro</label>
-                    <input type="text" id="bairro" name="bairro" placeholder="...">
+                    <input type="text" id="bairro" name="bairro" placeholder="..." class="inputs">
                 </div>
                 <div class="input-usuario" id="rua-usuario">
                     <label for="rua">Rua</label>
-                    <input type="text" id="rua" name="rua" placeholder="...">
+                    <input type="text" id="rua" name="rua" placeholder="..." class="inputs">
                 </div>
                 <div class="input-usuario" id="casa-usuario">
                     <label for="numero">Número</label>
-                    <input type="number" id="numero" name="numero" placeholder="...">
+                    <input type="number" id="numero" name="numero" placeholder="..." class="inputs">
                 </div>
             </div>
         </div>
         <div class="conhecimentos">
-            <h2>Conhecimentos</h2>
+            <h2>CONHECIMENTOS NA ÁREA</h2>
             <div class="checkbox-container" id="wrapper-linguagens">
                 <div class="linguagem">
                     <input type="checkbox" id="css" name="linguagens" class="box" value="CSS">
@@ -163,45 +163,47 @@
                 </div>
             </div>
         </div>
-        <h2>Informações Profissionais</h2>
-        <div class="professional-info">
-            <label for="profissao">Profissão</label>
-            <div class="wrapper">
-                <select id="profissao" name="profissao">
-                    <option value="Desenvolvedor">Desenvolvedor</option>
-                    <option value="Analista">Analista</option>
-                    <option value="Gerente de TI">Gerente de TI</option>
-                    <option value="Suporte">Suporte</option>
-                </select>
-            </div>
-            <label for="wrapper-experiencia">Experiência</label>
-            <div class="wrapper-radio" id="wrapper-experiencia">
-                <div class="experiencia">
-                    <label for="junior">Júnior</label>
-                    <input type="radio" id="junior" name="experiencia" value="Júnior">
+        <div class="experiencia">
+            <h2>EXPERIÊNCIA PROFISSIONAL</h2>
+            <div class="professional-info">
+                <label for="profissao">Profissão</label>
+                <div class="select" id="profissao">
+                    <p id="custom-select">Escolha uma opção:</p>
+                    <div class="options" style="display: none;">
+                        <span class="option-value"></span>
+                        <span class="option-value">Desenvolvedor</span>
+                        <span class="option-value">Analista</span>
+                        <span class="option-value">Gerente de TI</span>
+                        <span class="option-value">Suporte</span>
+                    </div>
                 </div>
-                <div class="experiencia">
-                    <label for="pleno">Pleno</label>
-                    <input type="radio" id="pleno" name="experiencia" value="Pleno">
-                </div>
-                <div class="experiencia">
-                    <label for="senior">Sênior</label>
-                    <input type="radio" id="senior" name="experiencia" value="Sênior">
-                </div>
-                <div class="experiencia">
-                    <label for="master">Master</label>
-                    <input type="radio" id="master" name="experiencia" value="Master">
+                <label for="wrapper-experiencia">Experiência</label>
+                <div class="wrapper-radio" id="wrapper-experiencia">
+                    <div class="exp-input">
+                        <label for="junior">Júnior</label>
+                        <input type="radio" id="junior" name="experiencia" value="Júnior" class="box">
+                    </div>
+                    <div class="exp-input">
+                        <label for="pleno">Pleno</label>
+                        <input type="radio" id="pleno" name="experiencia" value="Pleno" class="box">
+                    </div>
+                    <div class="exp-input">
+                        <label for="senior">Sênior</label>
+                        <input type="radio" id="senior" name="experiencia" value="Sênior" class="box">
+                    </div>
+                    <div class="exp-input">
+                        <label for="master">Master</label>
+                        <input type="radio" id="master" name="experiencia" value="Master" class="box">
+                    </div>
                 </div>
             </div>
         </div>
         <div class="info-adicional">
-            <label for="descricao">
-                <h2>Informações Adicionais</h2>
-            </label>
+        <h2>ADICIONAL</h2>
             <textarea name="descricao" id="descricao" placeholder="Insira aqui Informações adicionais que possam ser úteis" rows="8"></textarea>
         </div>
         <div class="btn-wrapper">
-            <button type="reset" class="form-btn" id="del-btn">Apagar</button>
+            <button type="reset" class="form-btn" id="del-btn">Redefinir</button>
             <button type="submit" class="form-btn" id="submit-btn">Enviar</button>
         </div>
     </form>
