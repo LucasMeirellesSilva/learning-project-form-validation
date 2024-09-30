@@ -170,7 +170,7 @@ function checkTelefone() {
   const alerta = criarAlerta();
   const telefone = document.getElementById('telefone');
   const userText = String(telefone.value);
-  const telRegex = /^\d{2}\d{5}\d{4}$/;
+  const telRegex = /^\d{2} \d{5}-\d{4}$/;
   telefone.addEventListener('change', removerAlerta);
   const div = criarDiv();
   const label = telefone.parentElement.querySelector('label');
@@ -196,6 +196,7 @@ function checkPais() {
   const alerta = criarAlerta();
   const pais = document.getElementById('pais');
   const userText = String(pais.value);
+  pais.addEventListener('change', removerAlerta);
   const div = criarDiv();
   const label = pais.parentElement.querySelector('label');
 
@@ -221,6 +222,7 @@ function checkCep() {
   const cep = document.getElementById('cep');
   const userText = String(cep.value);
   const cepRegex = /^\d{5}-\d{3}/;
+  cep.addEventListener('change', removerAlerta);
   const div = criarDiv();
   const label = cep.parentElement.querySelector('label');
 
@@ -245,6 +247,7 @@ function checkEstado() {
   const alerta = criarAlerta();
   const estado = document.getElementById('estado');
   const userText = String(estado.value);
+  estado.addEventListener('change', removerAlerta);
   const div = criarDiv();
   const label = estado.parentElement.querySelector('label');
 
@@ -269,6 +272,7 @@ function checkCidade() {
   const alerta = criarAlerta();
   const cidade = document.getElementById('cidade');
   const userText = String(cidade.value);
+  cidade.addEventListener('change', removerAlerta);
   const div = criarDiv();
   const label = cidade.parentElement.querySelector('label');
 
@@ -293,6 +297,7 @@ function checkBairro() {
   const alerta = criarAlerta();
   const bairro = document.getElementById('bairro');
   const userText = String(bairro.value);
+  bairro.addEventListener('change', removerAlerta);
   const div = criarDiv();
   const label = bairro.parentElement.querySelector('label');
 
@@ -317,6 +322,7 @@ function checkRua() {
   const alerta = criarAlerta();
   const rua = document.getElementById('rua');
   const userText = String(rua.value);
+  rua.addEventListener('change', removerAlerta);
   const div = criarDiv();
   const label = rua.parentElement.querySelector('label');
 
@@ -341,6 +347,7 @@ function checkNumero() {
   const alerta = criarAlerta();
   const numero = document.getElementById('numero');
   const userText = String(numero.value);
+  numero.addEventListener('change', removerAlerta);
   const div = criarDiv();
   const label = numero.parentElement.querySelector('label');
 
@@ -359,8 +366,6 @@ function checkConhecimentos() {
   const alerta = criarAlerta();
   const conhecimentos = document.querySelector('.conhecimentos');
   const inputs = conhecimentos.querySelectorAll('input[type="checkbox"]');
-  const div = criarDiv();
-  const title = conhecimentos.querySelector('h2');
 
   let isValid = false;
 
@@ -371,13 +376,12 @@ function checkConhecimentos() {
   })
 
   if (isValid == false) {
-    const checkboxContainer = conhecimentos.querySelector('.checkbox-container')
     alerta.title += 'Você precisa marcar ao menos uma linguagem.';
-    div.appendChild(title);
-    div.appendChild(alerta);
-    conhecimentos.insertBefore(div, checkboxContainer);
-    conhecimentos.classList.add('input-alerta');
-    conhecimentos.focus();
+    alerta.style.marginRight = '20px';
+    alerta.style.width = '32px';
+    const container = conhecimentos.querySelector('.title-container');
+    container.classList.add('alerta-container');
+    container.appendChild(alerta);
   }
 
   return isValid;
@@ -385,27 +389,25 @@ function checkConhecimentos() {
 
 function checkExperiencia() {
   const alerta = criarAlerta();
-  const profInfo = document.querySelector('.professional-info');
+  const experiencia = document.querySelector('.experiencia');
   const inputs = document.querySelectorAll('input[name="experiencia"]');
-  const div = criarDiv();
-  const title = profInfo.querySelector('h2');
+  const select = document.querySelector('#custom-select');
 
   let isValid = false;
 
   inputs.forEach(input => {
-    if (input.checked == true) {
+    if (input.checked == true && select.textContent != 'Escolha uma opção:') {
       isValid = true;
     }
   })
 
   if (isValid == false) {
-    const inputContainer = profInfo.querySelector('.input-container')
-    alerta.title += 'Você precisa marcar seu nível de experiência.';
-    div.appendChild(title);
-    div.appendChild(alerta);
-    profInfo.insertBefore(div, inputContainer);
-    profInfo.classList.add('input-alerta');
-    profInfo.focus();
+    alerta.title += 'Você precisa marcar seu nível de experiência ou profissão.';
+    alerta.style.marginRight = '20px';
+    alerta.style.width = '32px';
+    const container = experiencia.querySelector('.title-container');
+    container.classList.add('alerta-container');
+    container.appendChild(alerta);
   }
 
   return isValid;
@@ -414,31 +416,34 @@ function checkExperiencia() {
 function checkAdditionalInfo() {
   const alerta = criarAlerta();
   const descricao = document.getElementById('descricao');
+  const infoAdd = document.querySelector('.info-adicional');
   const userText = String(descricao.value);
-  const div = criarDiv();
-  const label = descricao.parentElement.querySelector('label');
 
   let isValid = true;
 
   if (isEmpty(userText)) {
     alerta.title += 'A descrição não pode estar vazia.';
-    appendAlert(div, label, alerta, descricao);
+    alerta.style.marginRight = '20px';
+    alerta.style.width = '32px';
+    const container = infoAdd.querySelector('.title-container');
+    container.classList.add('alerta-container');
+    container.appendChild(alerta);
     isValid = false;
   }
 
   return isValid;
 }
 
-function mostrarconhecimentos(className) {
-  const conhecimentos = document.querySelector(className);
+function mostrarElementos(className) {
+  const elementos = document.querySelector(className);
 
-  conhecimentos.classList.remove('hidden');
-  conhecimentos.classList.add('show');
+  elementos.classList.remove('hidden');
+  elementos.classList.add('show');
   
   setTimeout(() => {
-    conhecimentos.classList.add('aparecendo');
+    elementos.classList.add('aparecendo');
     
-    conhecimentos.scrollIntoView({
+    elementos.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     });
@@ -456,7 +461,7 @@ export function checkPersInfo() {
     }
   })
   if (ready) {
-    mostrarconhecimentos('.adress-info');
+    mostrarElementos('.adress-info');
     inputs.forEach(input => {
       input.removeEventListener('change', checkPersInfo);
       input.removeEventListener('blur', checkPersInfo);
@@ -474,9 +479,9 @@ export function checkAdressInfo() {
     }
   })
   if (ready) {
-    mostrarconhecimentos('.conhecimentos');
+    mostrarElementos('.conhecimentos');
     setTimeout(() => {
-      mostrarconhecimentos('.professional-info');
+      mostrarElementos('.experiencia');
     }, 1000)
     inputs.forEach(input => {
       input.removeEventListener('change', checkAdressInfo);
@@ -484,15 +489,15 @@ export function checkAdressInfo() {
   }
 }
   
-export function checkProfInfo() {
+export function checkExpInfo() {
   const inputs = document.querySelectorAll('input[name="experiencia"]');
-  mostrarconhecimentos('.info-adicional');
+  mostrarElementos('.info-adicional');
     setTimeout(() => {
-      mostrarconhecimentos('.btn-wrapper');
+      mostrarElementos('.btn-wrapper');
       document.querySelector('.btn-wrapper').style.display = 'flex';
     }, 1000)
     inputs.forEach(input => {
-      input.removeEventListener('change', checkProfInfo);
+      input.removeEventListener('change', checkExpInfo);
     })
 }
 

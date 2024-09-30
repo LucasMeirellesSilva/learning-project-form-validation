@@ -1,12 +1,13 @@
 import { removerAlerta, removerTodosAlertas } from "./modules/alertMethods.js";
 import cepComplete from "./modules/cep.js";
-import { checkPersInfo, checkAdressInfo, checkProfInfo, checkAllInputs } from "./modules/validation.js";
+import { toggleRadio, toggleCheckbox } from "./modules/customElements.js";
+import { checkPersInfo, checkAdressInfo, checkExpInfo, checkAllInputs } from "./modules/validation.js";
 
 document.getElementById('formulario').addEventListener('submit', function(event) {
   event.preventDefault();
   removerTodosAlertas();
   if (checkAllInputs()) {
-    window.alert('Suas informações foram enviadas com sucesso.')
+    window.alert('Suas informações foram enviadas com sucesso.');
   };
 });
 
@@ -14,10 +15,13 @@ const persoInfoDiv = document.querySelector('.personal-info');
 const adressInfoDiv = document.querySelector('.adress-info');
 const inputsPerso = persoInfoDiv.querySelectorAll('input');
 const inputsAdress = adressInfoDiv.querySelectorAll('input');
-const radiosProf = document.querySelectorAll('input[name="experiencia"]');
 const inputTelefone = document.querySelector('input#telefone');
 const inputCpf = document.querySelector('input#cpf');
 const inputCep = document.querySelector('input#cep');
+const linguagens = document.querySelectorAll('.linguagem');
+const inputExp = document.querySelectorAll('.exp-input');
+const selectSpan = document.getElementById('custom-select');
+const options = document.querySelector('.options');
 inputsPerso.forEach(input => {
   if (input.id == 'nascimento') {
     input.addEventListener('blur', checkPersInfo);
@@ -28,14 +32,51 @@ inputsPerso.forEach(input => {
 inputsAdress.forEach(input => {
   input.addEventListener('change', checkAdressInfo);
 })
-radiosProf.forEach(radio => {
-  radio.addEventListener('change', checkProfInfo);
-})
+linguagens.forEach(item => {
+    item.addEventListener('click', () => {
+        toggleCheckbox(item);
+    });
+});
+inputExp.forEach(item => {
+    item.addEventListener('click', () => {
+        toggleRadio(item);
+    });
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+              checkExpInfo();
+              observer.disconnect();
+          }
+      });
+  });
+
+  const config = { attributes: true };
+
+  observer.observe(item, config);
+});
+
 inputTelefone.addEventListener('input', formatTelefone);
 inputCpf.addEventListener('input', formatCpf);
 inputCep.addEventListener('input', formatCep);
 inputCep.addEventListener('change', cepComplete);
 inputCep.addEventListener('change', removerAlerta);
+selectSpan.addEventListener('click', () => {
+  options.style.display = options.style.display === 'flex' ? 'none' : 'flex';
+})
+options.querySelectorAll('span').forEach( optionSpan => {
+  optionSpan.addEventListener('click', () => {
+      selectSpan.textContent = optionSpan.textContent;
+      options.style.display = 'none';
+      if(selectSpan.textContent === ''){
+          selectSpan.textContent = 'Escolha uma opção:'
+      }
+  })
+})
+document.addEventListener('click', (event) => {
+  if (options.style.display === 'flex' && event.target.closest('custom-select')){
+      options.style.display = 'none';
+  }
+})
 
 function formatTelefone() {
   const telefone = document.getElementById('telefone');

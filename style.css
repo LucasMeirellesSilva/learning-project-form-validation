@@ -1,126 +1,118 @@
-body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     width: 100vw;
     align-items: center;
     justify-content: center;
-    background-color: rgb(248, 248, 248);
+    background: url("https://cdn.dribbble.com/users/416610/screenshots/4801105/media/be031f8d02ca8cc404d44be54ee2c493.gif");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
 
 form {
     width: 55%;
     margin: 30px;
-    /* max-width: 30em; */
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
+.input-container {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 35px;
+    gap: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
 
 .input-usuario {
-    width: 30%;
+    width: 40%;
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    font-size: 1.4em;
+    font-size: 1.7em;
 }
 
-
-.input-container {
-    width: 85%;
-    margin-bottom: 15px;
-    padding: 35px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 15px;
-    gap: 30px;
-    justify-content: space-evenly;
-}
-
-
-.wrapper label{
+.inputs {
+    padding: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(6px);
     font-size: 1.1rem;
-    text-align: center;
+    color: white;
 }
 
-
-select {
-    padding: 0.5rem;
-    border-radius: 8px;
+.erro {
+    color: red;
+    font-size: 0.75em;
 }
 
-
-.experiencia {
-    display: flex;
-    justify-content: space-between;
+.errado {
+    border: 1px solid red;
 }
-
 
 h2 {
-    margin: 8px;
+    padding: 15px;
+    font-size: 2rem;
+    color: white;
 }
-
 
 input {
     width: 100%;
     border-radius: 8px;
     border: 1px solid grey;
     line-height: 35px;
-/* max-width: 20em; */
-    text-indent: 8px;
 }
 
-
-.wrapper{
+/* Classe única do antigo CSS */
+.wrapper {
+    margin: 15px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-
-.linguagem {
+.info-adicional {
+    margin-top: 15px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.5rem; 
+    overflow: visible;
 }
 
-
-input[type=checkbox] {
-    width: fit-content;
-    transform: scale(1.2);
-} 
-
-
-input[type=radio] {
-    width: fit-content;
+.input-container, .checkbox-container, .professional-info, .info-adicional textarea {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0px 0px 15px 15px;
+    backdrop-filter: blur(10px);
+    color: white;
 }
-
-
-.info-adicional{
-    display: flex;
-    flex-direction: column;
-}
-
 
 .info-adicional textarea {
-    width: 95%;
+    width: 100%;
+    padding: 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     resize: none;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 8px;
-    text-indent: 8px;
 }
-
 
 /* Remove as flechas de aumentar ou diminuir valor dos inputs de tipo number */
 input::-webkit-outer-spin-button,
@@ -129,81 +121,60 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-
-/* Remove as flechas no Firefox */
+/* Firefox */
 input[type=number] {
--moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
-
-.btn-wrapper{
+.btn-wrapper {
     margin: 20px;
     display: flex;
     justify-content: center;
     gap: 65px;
 }
 
-
 .form-btn {
-    width: 8rem;
-    padding: 15px 25px;
+    width: 20%;
+    padding: 15px;
     border-radius: 15px;
     border: none;
+    font-size: 1.4rem;
     color: white;
 }
 
-
-#submit-btn{
-    background-color: #00afd4;
-    border: 2px solid #00afd4;
+#submit-btn {
+    background-color: #6e6283;
+    border: 1px solid white;
     font-weight: bold;
 }
 
-
-#submit-btn:hover{
-    background-color: white;
-    color: #00afd4;
+#submit-btn:hover {
+    background-color: #dbdbdb;
+    color: #6e6283;
     cursor: pointer;
 }
 
-
-#del-btn{
-    background-color: red;
-    border: 2px solid red;
+#del-btn {
+    background-color: #6e6283;
+    border: 1px solid white;
     font-weight: bold;
 }
 
-
-#del-btn:hover{
-    background-color:white;
-    color: red;
+#del-btn:hover {
+    background-color: #dbdbdb;
+    color: #6e6283;
     cursor: pointer;
 }
 
-
-.input-alerta {
-    outline-color: red;
-}
-
-
-.hidden {
+input[type=checkbox], input[type=radio] {
     display: none;
 }
 
-
-.show {
-    display: block;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 3s ease, visibility 3s ease;
+.alerta-container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
 }
-
-
-.show.aparecendo {
-    opacity: 1;
-    visibility: visible;
-}
-
 
 .checkbox-container {
     width: 100%;
@@ -213,23 +184,26 @@ input[type=number] {
     justify-content: space-evenly;
     flex-wrap: wrap;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 15px;
     gap: 15px;
 }
 
+.title-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 15px 15px 0px 0px;
+    backdrop-filter: blur(6px);
+}
 
-.checkbox-container > label {
+.linguagem {
     width: 27%;
     padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    /* border: 2px solid rgb(206, 206, 206); */
+    backdrop-filter: blur(6px);
     border-radius: 15px;
-    user-select: none;
 }
-
 
 .language-content {
     width: 100%;
@@ -244,6 +218,185 @@ input[type=number] {
     border-radius: 15px;
 }
 
+.lang-img {
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lang-img img {
+    object-fit: contain;
+    max-width: 50px;
+}
+
+.linguagem:hover {    
+    cursor: pointer;
+}
+
+.language-content.checked {
+    transform: scale(0.90);
+}
+
+.linguagem.checked {
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 100px -10px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
+    border: 1px solid white;
+}
+
+.exp-input.checked {
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 100px -10px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
+    border: 1px solid white;
+    transition: transform 0.3s;
+    transform: scale(0.90);
+}
+
+.professional-info {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-size: 1.7em;
+}
+
+.options {
+    display: none;
+    width: 100%;
+    padding: 2px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.select {
+    width: 75%;
+    position: relative;
+}
+
+#custom-select {
+    width: 65%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+}
+
+.option-value {
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(135deg, rgb(70, 70, 70), rgb(70, 70, 70));  
+}
+
+#custom-select, .option-value {
+    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    font-size: 1.4rem;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.exp-input {
+    width: 18%;
+    padding: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.4rem;
+}
+
+.wrapper-radio {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input[type=radio] {
+    width: 35%;
+}
+
+/* Animações do CSS antigo */
+.animation {
+    animation: shaking 0.2s linear 10;
+}
+
+@keyframes shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(7deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-7deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Estilo do input de alerta */
+.input-alerta {
+    outline-color: red;
+}
+
+/* Classes para controle de exibição */
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 3s ease, visibility 3s ease;
+}
+
+.show.aparecendo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contêiner de checkbox */
+.checkbox-container {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 35px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    gap: 15px;
+}
+
+.checkbox-container > label {
+    width: 27%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    user-select: none;
+}
+
+.language-content {
+    width: 100%;
+    height: 100%;
+    gap: 15px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+    border-radius: 15px;
+}
 
 .lang-img {
     height: 55%;
@@ -252,35 +405,20 @@ input[type=number] {
     align-items: center;
 }
 
-.lang-img img{
+.lang-img img {
     object-fit: contain;
     max-width: 50px;
 }
 
-
-.checkbox-container > label:hover{    
+.checkbox-container > label:hover {
     cursor: pointer;
 }
-
 
 .language-content.checked {
     transform: scale(0.90);
 }
 
-
-.linguagem.checked{
-    box-shadow: rgba(134, 134, 194, 0.25) 0px 0px 100px -10px inset, rgba(163, 163, 163, 0.3) 0px 18px 36px -18px inset;  
+.linguagem.checked {
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 100px -10px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
+    border: 1px solid white;
 }
-
-
-.animation {
-    animation: shaking 0.2s linear 10;
-}
-
-@keyframes shaking {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(7deg); }
-    50% { transform: rotate(0eg); }
-    75% { transform: rotate(-7deg); }
-    100% { transform: rotate(0deg); }
-  }
