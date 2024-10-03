@@ -1,15 +1,18 @@
+// Vai da um trabalhinho comentar tudo isso aqui, da um 10 pra nós sor, valeu
 import { criarDiv, criarAlerta } from "./components.js";
 import { removerAlerta, appendAlert } from "./alertMethods.js";
 
-function hasNumbers(valor) {
-    const contemNumero = /\d/.test(valor);
-    return contemNumero;
+// Função boolean que checa se em uma string contém números.
+function hasNumbers(userText) {
+  return /\d/.test(userText);
   }
 
-function isEmpty(valor) {
-    return valor == ''
+// Função boolean que checa se uma string está vazia ou se contém apenas espaços em branco.
+function isEmpty(userText) {
+  return /^\s*$/.test(userText);
 }
 
+// Função que checa o input nome e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkName() {
   const alerta = criarAlerta();
   const nome = document.getElementById('nome');
@@ -46,7 +49,8 @@ function checkName() {
 
   return isValid;
 }
-  
+
+// Função que checa o input sobrenome e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkSurname() {
   const alerta = criarAlerta();
   const sobrenome = document.getElementById('sobrenome');
@@ -84,6 +88,7 @@ function checkSurname() {
   return isValid;
 }
   
+// Função que checa o input data de nascimento e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkNascimento() {
   const alerta = criarAlerta();
   const nascimento = document.getElementById('nascimento');
@@ -113,7 +118,8 @@ function checkNascimento() {
 
   return isValid;
 }
-  
+
+// Função que checa o input CPF e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkCpf() {
   const alerta = criarAlerta();
   const cpf = document.getElementById('cpf');
@@ -139,7 +145,8 @@ function checkCpf() {
 
   return isValid;
 }
-  
+
+// Função que checa o input email e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkEmail() {
   const alerta = criarAlerta();
   const email = document.getElementById('email');
@@ -165,7 +172,8 @@ function checkEmail() {
 
   return isValid;
 }
-  
+
+// Função que checa o input telefone e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkTelefone() {
   const alerta = criarAlerta();
   const telefone = document.getElementById('telefone');
@@ -192,6 +200,7 @@ function checkTelefone() {
   return isValid;
 }
 
+// Função que checa o input país e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkPais() {
   const alerta = criarAlerta();
   const pais = document.getElementById('pais');
@@ -217,6 +226,7 @@ function checkPais() {
   return isValid;
 }
 
+// Função que checa o input Cep e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkCep() {
   const alerta = criarAlerta();
   const cep = document.getElementById('cep');
@@ -243,6 +253,7 @@ function checkCep() {
   return isValid;
 }
 
+// Função que checa o input estado e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkEstado() {
   const alerta = criarAlerta();
   const estado = document.getElementById('estado');
@@ -268,6 +279,7 @@ function checkEstado() {
   return isValid;
 }
 
+// Função que checa o input cidade e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkCidade() {
   const alerta = criarAlerta();
   const cidade = document.getElementById('cidade');
@@ -293,6 +305,7 @@ function checkCidade() {
   return isValid;
 }
 
+// Função que checa o input baiirro e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkBairro() {
   const alerta = criarAlerta();
   const bairro = document.getElementById('bairro');
@@ -318,6 +331,7 @@ function checkBairro() {
   return isValid;
 }
 
+// Função que checa o input rua e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkRua() {
   const alerta = criarAlerta();
   const rua = document.getElementById('rua');
@@ -343,6 +357,7 @@ function checkRua() {
   return isValid;
 }
 
+// Função que checa o input numero e cria um alerta com os diferentes tipos de validação necessária, se passar por todas validações ela retorna true.
 function checkNumero() {
   const alerta = criarAlerta();
   const numero = document.getElementById('numero');
@@ -362,6 +377,7 @@ function checkNumero() {
   return isValid;
 }
 
+// Função que checa o container de conhecimentos e cria um alerta caso nenhum conhecimento tenha sido marcado, caso algum tenha sido marcado ela retorna true.
 function checkConhecimentos() {
   const alerta = criarAlerta();
   const conhecimentos = document.querySelector('.conhecimentos');
@@ -387,6 +403,7 @@ function checkConhecimentos() {
   return isValid;
 }
 
+// Função que checa o container de experiencias e cria um alerta caso nenhum nivel de experiencia ou profissão tenha sido selecionada, caso ambos estejam marcados ela retorna true.
 function checkExperiencia() {
   const alerta = criarAlerta();
   const experiencia = document.querySelector('.experiencia');
@@ -413,6 +430,7 @@ function checkExperiencia() {
   return isValid;
 }
 
+// Função que checa o textarea de informação adicional e cria um alerta caso nenhuma informação adicional seja digitada, caso contrário ela retorna true.
 function checkAdditionalInfo() {
   const alerta = criarAlerta();
   const descricao = document.getElementById('descricao');
@@ -434,6 +452,7 @@ function checkAdditionalInfo() {
   return isValid;
 }
 
+// Função que remove a classe "escondida" e adiciona uma animação de opacidade para um elemento (container) ser mostrado na tela.
 function mostrarElementos(className) {
   const elementos = document.querySelector(className);
 
@@ -450,7 +469,8 @@ function mostrarElementos(className) {
 
   }, 10);
 }
-  
+
+// Função que checa o container de informações pessoais possui algum input em branco, caso nenhum esteja em branco ela chama a função mostrarelemento e permite ao usuario adicionar mais informações.
 export function checkPersInfo() {
   const persoInfo = document.querySelector('.personal-info');
   const inputs = persoInfo.querySelectorAll('input');
@@ -469,6 +489,7 @@ export function checkPersInfo() {
   }
 }
   
+// Função que checa o container de informações de endereço possui algum input em branco, caso nenhum esteja em branco ela chama a função mostrarelemento e permite ao usuario adicionar mais informações.
 export function checkAdressInfo() {
   const adressInfo = document.querySelector('.adress-info');
   const inputs = adressInfo.querySelectorAll('input');
@@ -488,7 +509,8 @@ export function checkAdressInfo() {
     })
   }
 }
-  
+
+// Função que checa o container de experiências pessoais possui algum input em branco, caso nenhum esteja em branco ele chama a função mostrarelemento e permite ao usuario adicionar um texto adicional e enviar o formulário.
 export function checkExpInfo() {
   const inputs = document.querySelectorAll('input[name="experiencia"]');
   mostrarElementos('.info-adicional');
@@ -501,6 +523,7 @@ export function checkExpInfo() {
     })
 }
 
+// Função que faz a validação de todos os inputs e ocorre quando o botão de submit for clicado, se todas validações retornarem true, ele envia um feedback que as informações foram enviadas.
 export function checkAllInputs() {
   let ready = true
   const validators = [

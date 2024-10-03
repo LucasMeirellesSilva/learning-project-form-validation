@@ -3,14 +3,16 @@ import cepComplete from "./modules/cep.js";
 import { toggleRadio, toggleCheckbox } from "./modules/customElements.js";
 import { checkPersInfo, checkAdressInfo, checkExpInfo, checkAllInputs } from "./modules/validation.js";
 
+// O código que adiciona um eventListener no formulário para impedir o envio imediato e fazer a validação dos campos.
 document.getElementById('formulario').addEventListener('submit', function(event) {
   event.preventDefault();
   removerTodosAlertas();
   if (checkAllInputs()) {
     window.alert('Suas informações foram enviadas com sucesso.');
-  };
+  }
 });
 
+// Uma lista meio feia de selector e addEventListener para todos os campos de validação, é o que permite que a página esconda os próximos inputs enquanto os inputs anteriores não forem completos, também foi necessário um mutationObserver para lidar com o select custom e permitir a validação.
 const persoInfoDiv = document.querySelector('.personal-info');
 const adressInfoDiv = document.querySelector('.adress-info');
 const inputsPerso = persoInfoDiv.querySelectorAll('input');
@@ -55,11 +57,14 @@ inputExp.forEach(item => {
   observer.observe(item, config);
 });
 
+//Adicionando Listeners para formatação de campos 
 inputTelefone.addEventListener('input', formatTelefone);
 inputCpf.addEventListener('input', formatCpf);
 inputCep.addEventListener('input', formatCep);
 inputCep.addEventListener('change', cepComplete);
 inputCep.addEventListener('change', removerAlerta);
+
+// Elementos custom que fizemos para estilização
 selectSpan.addEventListener('click', () => {
   options.style.display = options.style.display === 'flex' ? 'none' : 'flex';
 })
@@ -78,6 +83,7 @@ document.addEventListener('click', (event) => {
   }
 })
 
+// Funções de formatação de campos.
 function formatTelefone() {
   const telefone = document.getElementById('telefone');
   let userText = telefone.value.replace(/\D/g, '')

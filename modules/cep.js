@@ -1,3 +1,4 @@
+// Uma função para autocompletar o CEP digitado pelo usuário, utilizando uma API.
 export default function cepComplete() {
   const cep = document.querySelector('input[name="cep"]');
     fetch(`https://viacep.com.br/ws/${cep.value}/json/`)

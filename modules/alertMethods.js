@@ -1,3 +1,12 @@
+// Função que adiciona um alerta em um campo que esteja incorreto para envio.
+export function appendAlert(div, label, alerta, elemento) {
+  div.appendChild(label);
+  div.appendChild(alerta);
+  elemento.parentNode.insertBefore(div, elemento);
+  elemento.classList.add('input-alerta');
+  elemento.focus();
+} 
+
 // Função que remove alertas ao usuário editar um campo de texto específico.
 export function removerAlerta(e) {
   const inputParent = e.target.closest('.input-usuario');
@@ -27,11 +36,3 @@ export function removerTodosAlertas() {
     })
   }
 }
-
-export function appendAlert(div, label, alerta, elemento) {
-  div.appendChild(label);
-  div.appendChild(alerta);
-  elemento.parentNode.insertBefore(div, elemento);
-  elemento.classList.add('input-alerta');
-  elemento.focus();
-} 
