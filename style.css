@@ -1,69 +1,44 @@
+/* Reset geral do documento */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Definição das características básicas do corpo do documento */
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     width: 100vw;
     align-items: center;
     justify-content: center;
-    background: url("https://cdn.dribbble.com/users/416610/screenshots/4801105/media/be031f8d02ca8cc404d44be54ee2c493.gif");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url("https://cdn.dribbble.com/users/416610/screenshots/4801105/media/be031f8d02ca8cc404d44be54ee2c493.gif") center / cover fixed no-repeat;
 }
 
+/* Remove o scroll da página */
 body::-webkit-scrollbar {
     display: none;
 }
 
+/* Remove as flechas de aumentar ou diminuir valor dos inputs de tipo number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Configurações básicas do formulário e alguns elementos dele */
 form {
     width: 55%;
     margin: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.input-container {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 35px;
-    gap: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-.input-usuario {
-    width: 40%;
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 1.7em;
-}
-
-.inputs {
-    padding: 8px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(6px);
-    font-size: 1.1rem;
-    color: white;
-}
-
-.erro {
-    color: red;
-    font-size: 0.75em;
-}
-
-.errado {
-    border: 1px solid red;
 }
 
 h2 {
@@ -79,24 +54,51 @@ input {
     line-height: 35px;
 }
 
-/* Classe única do antigo CSS */
-.wrapper {
-    margin: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+/* Inputs que ficam escondidos, permitem animações customizadas */
+input[type=checkbox], input[type=radio] {
+    display: none;
 }
 
-.info-adicional {
-    margin-top: 15px;
-    position: relative;
-    z-index: 1;
+/* Container de informações pessoais */
+.input-container {
     width: 100%;
+    margin-bottom: 15px;
+    padding: 35px;
+    gap: 30px;
     display: flex;
-    flex-direction: column;
-    overflow: visible;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
+/* Campos de input dos primeiros containers */
+.input-usuario {
+    width: 40%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.7em;
+}
+
+/* Autoexplicativo, classe dos inputs propriamente ditos */
+.inputs {
+    padding: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(6px);
+    font-size: 1.1rem;
+    color: white;
+}
+
+/* Título dos containers, que fica logo acima deles */
+.title-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 15px 15px 0px 0px;
+    backdrop-filter: blur(6px);
+}
+
+/* Definição do fundo dos containers, com blur, cor, opacidade e borda */
 .input-container, .checkbox-container, .professional-info, .info-adicional textarea {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -106,76 +108,7 @@ input {
     color: white;
 }
 
-.info-adicional textarea {
-    width: 100%;
-    padding: 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.1rem;
-    resize: none;
-}
-
-/* Remove as flechas de aumentar ou diminuir valor dos inputs de tipo number */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
-}
-
-.btn-wrapper {
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 65px;
-}
-
-.form-btn {
-    width: 20%;
-    padding: 15px;
-    border-radius: 15px;
-    border: none;
-    font-size: 1.4rem;
-    color: white;
-}
-
-#submit-btn {
-    background-color: #6e6283;
-    border: 1px solid white;
-    font-weight: bold;
-}
-
-#submit-btn:hover {
-    background-color: #dbdbdb;
-    color: #6e6283;
-    cursor: pointer;
-}
-
-#del-btn {
-    background-color: #6e6283;
-    border: 1px solid white;
-    font-weight: bold;
-}
-
-#del-btn:hover {
-    background-color: #dbdbdb;
-    color: #6e6283;
-    cursor: pointer;
-}
-
-input[type=checkbox], input[type=radio] {
-    display: none;
-}
-
-.alerta-container {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-}
-
+/* Estilização do container dos conhecimentos do usuário */
 .checkbox-container {
     width: 100%;
     margin-bottom: 15px;
@@ -187,13 +120,22 @@ input[type=checkbox], input[type=radio] {
     gap: 15px;
 }
 
-.title-container {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    border: 2px solid rgba(255, 255, 255, 0.18);
-    border-radius: 15px 15px 0px 0px;
-    backdrop-filter: blur(6px);
+.checkbox-container > label {
+    width: 27%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    user-select: none;
 }
 
+.checkbox-container > label:hover {
+    cursor: pointer;
+}
+
+/* Configuração das divs das linguagens propriamente ditas */
 .linguagem {
     width: 27%;
     padding: 15px;
@@ -218,18 +160,6 @@ input[type=checkbox], input[type=radio] {
     border-radius: 15px;
 }
 
-.lang-img {
-    height: 55%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.lang-img img {
-    object-fit: contain;
-    max-width: 50px;
-}
-
 .linguagem:hover {    
     cursor: pointer;
 }
@@ -243,13 +173,65 @@ input[type=checkbox], input[type=radio] {
     border: 1px solid white;
 }
 
-.exp-input.checked {
-    box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 100px -10px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
-    border: 1px solid white;
-    transition: transform 0.3s;
-    transform: scale(0.90);
+.lang-img {
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.lang-img img {
+    object-fit: contain;
+    max-width: 50px;
+}
+
+/* O container de informações adicionais */
+.info-adicional {
+    margin-top: 15px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.info-adicional textarea {
+    width: 100%;
+    padding: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem;
+    resize: none;
+}
+
+/* Container dos botões */
+.btn-wrapper {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 65px;
+}
+
+/* Estilização dos botões */
+.form-btn {
+    width: 20%;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.4rem;
+    color: white;
+    background-color: #6e6283;
+    border: 1px solid white;
+    font-weight: bold;
+}
+
+.form-btn:hover {
+    background-color: #dbdbdb;
+    color: #6e6283;
+    cursor: pointer;
+}
+
+/* Container que apresenta as informações profissionais do usuário */
 .professional-info {
     width: 100%;
     margin-bottom: 15px;
@@ -261,6 +243,20 @@ input[type=checkbox], input[type=radio] {
     font-size: 1.7em;
 }
 
+/* Estilização do select customizado */
+.select {
+    width: 75%;
+    position: relative;
+}
+
+#custom-select {
+    width: 65%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+}
+
+/* Estilização dos campos option customizados */
 .options {
     display: none;
     width: 100%;
@@ -273,18 +269,6 @@ input[type=checkbox], input[type=radio] {
     width: 65%;
     display: flex;
     flex-direction: column;
-}
-
-.select {
-    width: 75%;
-    position: relative;
-}
-
-#custom-select {
-    width: 65%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    border-radius: 5px;
-    backdrop-filter: blur(10px);
 }
 
 .option-value {
@@ -303,6 +287,12 @@ input[type=checkbox], input[type=radio] {
     cursor: pointer;
 }
 
+/* Wrapper que contém os input radio da experiência do usuário */
+.wrapper-radio {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .exp-input {
     width: 18%;
     padding: 8px;
@@ -317,16 +307,14 @@ input[type=checkbox], input[type=radio] {
     font-size: 1.4rem;
 }
 
-.wrapper-radio {
-    display: flex;
-    justify-content: space-evenly;
+.exp-input.checked {
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 100px -10px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
+    border: 1px solid white;
+    transition: transform 0.3s;
+    transform: scale(0.90);
 }
 
-input[type=radio] {
-    width: 35%;
-}
-
-/* Animações do CSS antigo */
+/* Animação para o alerta de resposta inválida */
 .animation {
     animation: shaking 0.2s linear 10;
 }
@@ -337,6 +325,12 @@ input[type=radio] {
     50% { transform: rotate(0deg); }
     75% { transform: rotate(-7deg); }
     100% { transform: rotate(0deg); }
+}
+
+.alerta-container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
 }
 
 /* Estilo do input de alerta */
@@ -359,66 +353,4 @@ input[type=radio] {
 .show.aparecendo {
     opacity: 1;
     visibility: visible;
-}
-
-/* Contêiner de checkbox */
-.checkbox-container {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 35px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 15px;
-    gap: 15px;
-}
-
-.checkbox-container > label {
-    width: 27%;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 15px;
-    user-select: none;
-}
-
-.language-content {
-    width: 100%;
-    height: 100%;
-    gap: 15px;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
-    border-radius: 15px;
-}
-
-.lang-img {
-    height: 55%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.lang-img img {
-    object-fit: contain;
-    max-width: 50px;
-}
-
-.checkbox-container > label:hover {
-    cursor: pointer;
-}
-
-.language-content.checked {
-    transform: scale(0.90);
-}
-
-.linguagem.checked {
-    box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 100px -10px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
-    border: 1px solid white;
 }

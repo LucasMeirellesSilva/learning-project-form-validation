@@ -9,6 +9,7 @@
 <!-- Participantes: Artur Borges Rodrigues, Lucas Kauan Meirelles. -->
 <body>
     <form id="formulario">
+        <!-- Container das informações pessoais e de contato do usuário -->
         <div class="personal-info">
             <div class="title-container">
                 <h2>DADOS PESSOAIS</h2>
@@ -40,6 +41,9 @@
                 </div>
             </div>
         </div>
+        <!-- Container de dados de endereço do usuário.
+         As divs que tiverem "hidden" na sua classe irão receber uma animação especial
+         Falaremos dela no arquivo CSS -->
         <div class="adress-info hidden">
             <div class="title-container">
                 <h2>ENDEREÇO</h2>
@@ -75,6 +79,7 @@
                 </div>
             </div>
         </div>
+        <!-- Container de checkbox para os conhecimentos do usuário -->
         <div class="conhecimentos hidden">
             <div class="title-container">
                 <h2>CONHECIMENTOS NA ÁREA</h2>
@@ -84,7 +89,7 @@
                     <input type="checkbox" id="css" name="linguagens" class="box" value="CSS">
                     <div class="language-content">
                         <div class="lang-img">
-                            <img src="/icones/CSS-Logo.png" alt="logo CSS" draggable="false">
+                            <img src="./icones/CSS-Logo.png" alt="logo CSS" draggable="false">
                         </div>
                         <p>CSS</p>
                     </div>
@@ -163,10 +168,13 @@
                 </div>
             </div>
         </div>
+        <!-- Container de experiências do usuário na área -->
         <div class="experiencia hidden">
             <div class="title-container">
                 <h2>EXPERIÊNCIA PROFISSIONAL</h2>
             </div>
+            <!-- Informações profissionais do usuário, contendo um select custom
+             pois achamos melhor estilizar as options do select dessa maneira -->
             <div class="professional-info">
                 <label for="profissao">Profissão</label>
                 <div class="select" id="profissao">
@@ -179,6 +187,7 @@
                         <span class="option-value">Suporte</span>
                     </div>
                 </div>
+                <!-- Input radios para selecionar o nível de experiência -->
                 <label for="wrapper-experiencia">Experiência</label>
                 <div class="wrapper-radio" id="wrapper-experiencia">
                     <div class="exp-input">
@@ -200,15 +209,17 @@
                 </div>
             </div>
         </div>
+        <!-- Container com um textarea para informações adicionais -->
         <div class="info-adicional hidden">
-        <div class="title-container">
-            <h2>ADICIONAL</h2>
-        </div>
+            <div class="title-container">
+                <h2>ADICIONAL</h2>
+            </div>
             <textarea name="descricao" id="descricao" placeholder="Insira aqui Informações adicionais que possam ser úteis" rows="8"></textarea>
         </div>
+        <!-- Div com os botões de submit e reset -->
         <div class="btn-wrapper hidden">
-            <button type="reset" class="form-btn" id="del-btn">Redefinir</button>
-            <button type="submit" class="form-btn" id="submit-btn">Enviar</button>
+                <button type="reset" class="form-btn" id="del-btn">Redefinir</button>
+                <button type="submit" class="form-btn" id="submit-btn">Enviar</button>
         </div>
     </form>
     <script type="module" src="main.js"></script>
